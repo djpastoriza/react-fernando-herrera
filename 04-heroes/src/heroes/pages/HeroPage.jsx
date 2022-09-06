@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Publisher } from "../constant";
 import { getHeroById } from "../helpers";
@@ -5,21 +6,17 @@ import { getHeroById } from "../helpers";
 export const HeroPage = () => {
   const navigate = useNavigate();
   const { id } = useParams(); // revisa los params de la url ( no los queary params )
-  const hero = getHeroById(id);
+  const hero = useMemo(() => getHeroById(id),[id]);
 
   const onNavigateBack = () => {
-    if (hero.publisher === Publisher.DC) {
-      navigate("/dc");
-      return;
-    }
-    navigate("/marvel");
+    navigate(-1);
   };
 
   if (!hero) {
     return <Navigate to="/marvel" />;
   }
   return (
-    <div className="row mt-5">
+    <div className="row mt-5 animate__animated animate__fadeIn">
       <div className="col-4">
         <img
           src={`/assets/heroes/${id}.jpg`}
