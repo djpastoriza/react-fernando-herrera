@@ -1,8 +1,9 @@
 // @flow
 import * as React from "react";
-import { Navbar } from "../../ui";
+import { Navbar } from "../../ui/components/Navbar";
 import { MarvelPage, DcPage, SearchPage, HeroPage } from "../pages";
 import { Route, Routes, Navigate } from "react-router-dom";
+
 
 export const HeroesRoutes = () => {
   return (

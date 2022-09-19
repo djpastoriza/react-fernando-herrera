@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { HeroCard } from './';
 import { getHeroesByPublisher } from '../helpers';
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
 
 
